@@ -35,11 +35,17 @@ $(window).on('popstate', function(e){
   })
 
 //端末情報取得
-var device = navigator.userAgent.match(/iPhone/);
-if (device == null){
+var device = navigator.platform;
+if (/android/i.test(device)) {
+  device = 'Android端末';
+} else if (/iPhone|iPad|iPod/i.test(device)) {
+  device = 'iPhone端末';
+} else {
   device = '端末';
-  $('#device').text(device);
 }
+
+$('#device').text(device);
+
 //カウントダウン処理
   var time = 300;
   setInterval(function(){
