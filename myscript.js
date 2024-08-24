@@ -35,7 +35,7 @@ $(window).on('popstate', function(e){
   })
 
 //端末情報取得
-var device = navigator.userAgent.match(/Android|iPhone|iPad/);
+var device = navigator.userAgent.match(/iPhone/);
 if (device == null){
   device = '端末';
   $('#device').text(device);
